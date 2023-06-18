@@ -219,7 +219,7 @@ def open_browser():
     if ui.get("open_browser_on_start", True):
         import webbrowser
 
-        webbrowser.open(f"http://localhost:{port}")
+        webbrowser.open(f"http://0.0.0.0:{port}")
 
     Console().print(
         Panel(
