@@ -110,7 +110,7 @@ def getConfig(default_val=APP_CONFIG_DEFAULTS):
         if os.getenv("SD_UI_BIND_PORT") is not None:
             config["net"]["listen_port"] = int(os.getenv("SD_UI_BIND_PORT"))
         if os.getenv("SD_UI_BIND_IP") is not None:
-            config["net"]["listen_to_network"] = os.getenv("SD_UI_BIND_IP") == "0.0.0.0"
+            config["net"]["listen_to_network"] = os.getenv("SD_UI_BIND_IP") == "localhost"
         return config
     except Exception:
         log.warn(traceback.format_exc())
@@ -219,7 +219,7 @@ def open_browser():
     if ui.get("open_browser_on_start", True):
         import webbrowser
 
-        webbrowser.open(f"http://0.0.0.0:{port}")
+        webbrowser.open(f"http://localhost:{port}")
 
     Console().print(
         Panel(
