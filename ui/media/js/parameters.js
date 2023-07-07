@@ -199,7 +199,7 @@ var PARAMETERS = [
         type: ParameterType.custom,
         label: "Network port",
         note:
-            "Port that this server listens to. The '9000' part in 'http://localhost:9000'. Please restart the program after changing this.",
+            "Port that this server listens to. The '9000' part in 'http://0.0.0.0:9000'. Please restart the program after changing this.",
         icon: "fa-anchor",
         render: (parameter) => {
             return `<input id="${parameter.id}" name="${parameter.id}" size="6" value="9000" onkeypress="preventNonNumericalInput(event)">`

@@ -722,7 +722,7 @@ function checkWriteToClipboardPermission(result) {
     })
     resetSettings.parentNode.insertBefore(copyIcon, resetSettings)
 }
-// Determine which access we have to the clipboard. Clipboard access is only available on localhost or via TLS.
+// Determine which access we have to the clipboard. Clipboard access is only available on 0.0.0.0 or via TLS.
 navigator.permissions.query({ name: "clipboard-write" }).then(checkWriteToClipboardPermission, (e) => {
     if (e instanceof TypeError && typeof navigator?.clipboard?.writeText === "function") {
         // Fix for firefox https://bugzilla.mozilla.org/show_bug.cgi?id=1560373

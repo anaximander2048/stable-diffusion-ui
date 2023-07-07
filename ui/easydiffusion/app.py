@@ -110,7 +110,7 @@ def getConfig(default_val=APP_CONFIG_DEFAULTS):
         if os.getenv("SD_UI_BIND_PORT") is not None:
             config["net"]["listen_port"] = int(os.getenv("SD_UI_BIND_PORT"))
         if os.getenv("SD_UI_BIND_IP") is not None:
-            config["net"]["listen_to_network"] = os.getenv("SD_UI_BIND_IP") == "localhost"
+            config["net"]["listen_to_network"] = os.getenv("SD_UI_BIND_IP") == "0.0.0.0"
         return config
     except Exception:
         log.warn(traceback.format_exc())
@@ -219,14 +219,14 @@ def open_browser():
     if ui.get("open_browser_on_start", True):
         import webbrowser
 
-        webbrowser.open(f"http://localhost:{port}")
+        webbrowser.open(f"http://0.0.0.0:{port}")
 
     Console().print(
         Panel(
             "\n"
             + "[white]Easy Diffusion is ready to serve requests.\n\n"
             + "A new browser tab should have been opened by now.\n"
-            + f"If not, please open your web browser and navigate to [bold yellow underline]http://localhost:{port}/\n",
+            + f"If not, please open your web browser and navigate to [bold yellow underline]http://0.0.0.0:{port}/\n",
             title="Easy Diffusion is ready",
             style="bold yellow on blue",
         )

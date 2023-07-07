@@ -8831,7 +8831,7 @@ getJasmineRequireObj().StackTrace = function(j$) {
 
     const framePatterns = [
         // Node, Chrome, Edge
-        // e.g. "   at QueueRunner.run (http://localhost:8888/__jasmine__/jasmine.js:4320:20)"
+        // e.g. "   at QueueRunner.run (http://0.0.0.0:8888/__jasmine__/jasmine.js:4320:20)"
         // Note that the "function name" can include a surprisingly large set of
         // characters, including angle brackets and square brackets.
         {
@@ -8846,8 +8846,8 @@ getJasmineRequireObj().StackTrace = function(j$) {
         { re: /\s*at (.+)$/, fileLineColIx: 1, style: "v8" },
 
         // PhantomJS on OS X, Safari, Firefox
-        // e.g. "run@http://localhost:8888/__jasmine__/jasmine.js:4320:27"
-        // or "http://localhost:8888/__jasmine__/jasmine.js:4320:27"
+        // e.g. "run@http://0.0.0.0:8888/__jasmine__/jasmine.js:4320:27"
+        // or "http://0.0.0.0:8888/__jasmine__/jasmine.js:4320:27"
         {
             re: /^(?:(([^@\s]+)@)|@)?([^\s]+)$/,
             fnIx: 2,
